@@ -2,7 +2,7 @@
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
-# Business Scenario
+# Business Scenario/Use Case (for the Google AI hackathon)
 
 An existing rental car company want to leverage AI/ML and GenAI capabilities to provide exceptional user expereince. The company want to understand customer needs/sentiments and adapt quickly. The company also want to leverage their existing IT investments (e.g., APIs/servies that they already have, data and kowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
 
@@ -19,12 +19,12 @@ Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.c
 - Retain customer by addressing their concerns before they leave and increase customer loyalty
 
 ## Solutions/Services Used
-- Google - **Gemini / Google AI** (**gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
-- Google (Low-Code) - **Vertex AI Conversation** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this low-code solution to provide human like experience to user and assist them with various rental services.
-- Google -  Node.js SDK (`@google/generative-ai`)
-- Langchain `@langchain/google-genai`
-- REST API - **NestJS**
-- HTML/CSS for demo page
+- **Google AI Studio / Gemini ** (**gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
+- **Google Vertex AI Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this low-code solution to provide human like experience to user and assist them with various rental services.
+- **Google -  Node.js SDK** (`@google/generative-ai`) - Consume Gemini via Node.js for building REST APIs
+- Langchain `@langchain/google-genai` - Orachestration with with Google AI
+- REST API - APIs are developed **NestJS**. Google Vertex AI Conversation uses these API (TOOL)
+- HTML/CSS - Demo page for hosting Vertex AI Chat UI 
 
 ## Google AI Studio
 Fine-tune LLM using various prompts to train and optimize model to following tasks:
@@ -43,13 +43,13 @@ Fine-tune LLM using various prompts to train and optimize model to following tas
 ## Google Vertex AI Assisstant
 Below are  **Visualization** of Vertex AI Assisstant **AGENT** and **TOOL**
 
-- AGENT - handle customer interaction
+- AGENTS - handle customer interaction
 
     <img src="./docs/agent_1.png" />
 
     <img src="./docs/agent_2.png" />
 
-- TOOL - invoke external systems/APIs via OpenAPI Integration
+- TOOLS - invoke external systems/APIs via OpenAPI Integration
 
     <img src="./docs/tool_1.png" width="100%"/>
 
@@ -181,3 +181,4 @@ $ npm run start:prod
 - Mock data for rental car: https://www.mockaroo.com
 - NestJS: https://nestjs.com
 - Langchain: https://www.langchain.com
+- Site template: colorlib
