@@ -4,7 +4,9 @@
 
 # Business Scenario/Use Case (for the Google AI hackathon)
 
-An existing rental car company want to leverage AI/ML and GenAI capabilities to provide exceptional user expereince. The company want to understand customer needs/sentiments and adapt quickly. The company also want to leverage their existing IT investments (e.g., APIs/servies that they already have, data and kowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
+An existing rental car company want to leverage AI/ML and GenAI capabilities to provide exceptional customer expereince. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
+
+The company also want to leverage their existing IT investments (e.g., APIs/servies that they already have, data and kowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
 
 **SOLUTION:** Leverage Google AI and Vertex AI's AI and Low-Code/No-Code capabilities
 
