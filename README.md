@@ -2,13 +2,11 @@
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
-# Business Scenario/Use Case (for the Google AI hackathon)
+# Business Scenario/Use Case
 
-An existing rental car company want to leverage AI/ML and GenAI capabilities to provide exceptional customer expereince. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
+An existing rental car company want to leverage AI/ML and GenAI (Google AI, Vertex AI's and Low-Code/No-Code) capabilities to provide exceptional customer expereince. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
 
 The company also want to leverage their existing IT investments (e.g., APIs/servies that they already have, data and kowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
-
-**SOLUTION:** Leverage Google AI and Vertex AI's AI and Low-Code/No-Code capabilities
 
 Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
 
@@ -21,8 +19,8 @@ Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.c
 - Retain customer by addressing their concerns before they leave and increase customer loyalty
 
 ## Solutions/Services Used
-- **Google AI Studio / Gemini ** (**gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
-- **Google Vertex AI Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this low-code solution to provide human like experience to user and assist them with various rental services.
+- **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
+- **Google Vertex AI Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this loßw-code solution to provide human like experience to user and assist them with various rental services.
 - **Google -  Node.js SDK** (`@google/generative-ai`) - Consume Gemini via Node.js for building REST APIs
 - Langchain `@langchain/google-genai` - Orachestration with with Google AI
 - REST API - APIs are developed **NestJS**. Google Vertex AI Conversation uses these API (TOOL)
