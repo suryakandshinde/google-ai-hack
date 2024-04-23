@@ -20,10 +20,10 @@ Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.c
 
 ## Solutions/Services Used
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
-- **Google Vertex AI Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this loßw-code solution to provide human like experience to user and assist them with various rental services.
+- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this loßw-code solution to provide human like experience to user and assist them with various rental services.
 - **Google -  Node.js SDK** (`@google/generative-ai`) - Consume Gemini via Node.js for building REST APIs
 - Langchain `@langchain/google-genai` - Orachestration with with Google AI
-- REST API - APIs are developed **NestJS**. Google Vertex AI Conversation uses these API (TOOL)
+- REST API - APIs are developed **NestJS**. Google Vertex AI Agent uses these API (TOOL)
 - HTML/CSS - Demo page for hosting Vertex AI Chat UI 
 
 ## Google AI Studio
@@ -58,7 +58,7 @@ Below are  **Visualization** of Vertex AI Assisstant **AGENT** and **TOOL**
 
 # Introduction
 
-This is a fully functional demo rental car booking Chat Assisstant application that leverages **Google AI** and **Vertex AI Conversation**. In this application, the Google AI (Gemeni) and Vertex AI Conversational capabilities are leveraged for provide customer that is equivalant to human like agents. The Chat Assitant will help finding car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car expereince) and suggest an offer to the customer based on sentiment analysis. Customer can interact with Google AI (in this case, **gemini-1.0-pro-001**) Vertex AI Assisstant. If the feedback is positive, suggest an offer and if the feedback is negative suggest an alternate offer.
+This is a fully functional demo rental car booking Chat Assisstant application that leverages **Google AI** and **Vertex AI Agent/Conversation**. In this application, the Google AI (Gemeni) and Vertex AI Conversational capabilities are leveraged for provide customer that is equivalant to human like agents. The Chat Assitant will help finding car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car expereince) and suggest an offer to the customer based on sentiment analysis. Customer can interact with Google AI (in this case, **gemini-1.0-pro-001**) Vertex AI Assisstant. If the feedback is positive, suggest an offer and if the feedback is negative suggest an alternate offer.
 
  <img src="./docs/vertex_ai_gemini_agent_console.png" /> 
 
