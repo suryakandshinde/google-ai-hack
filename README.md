@@ -45,13 +45,13 @@ Fine-tune LLM using various prompts to train and optimize model to following tas
 ## Google Vertex AI Assisstant
 Below are  **Visualization** of Vertex AI Assisstant **AGENT** and **TOOL**
 
-- AGENTS - handle customer interaction
+- **AGENTS - handle customer interaction**
 
     <img src="./docs/agent_1.png" />
 
     <img src="./docs/agent_2.png" />
 
-- TOOLS - invoke external systems/APIs via OpenAPI Integration
+- **TOOLS - invoke external systems/APIs via OpenAPI Integration**
 
     <img src="./docs/tool_1.png" width="100%"/>
 
