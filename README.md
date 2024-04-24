@@ -4,25 +4,25 @@
 
 # Business Scenario/Use Case
 
-An existing rental car company want to leverage AI/ML and GenAI (Google AI, Vertex AI's and Low-Code/No-Code) capabilities to provide exceptional customer expereince. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
+An existing rental car company want to leverage AI/ML and GenAI (Google AI, Vertex AI's and Low-Code/No-Code) capabilities to provide exceptional customer experience. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
 
-The company also want to leverage their existing IT investments (e.g., APIs/servies that they already have, data and kowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
+The company also want to leverage their existing IT investments (e.g., APIs/services that they already have, data and knowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
 
 Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
 
 ## Business impact
-- Leverage existing IT investments (APIs, services, content, data etc.) to enable GenAI capabilties
-- Easy, Fast and Cost effective integration of AI/ML and GenAI capabilities to generate value for business
-- Harness the power AI/ML and GenAI to delivery the best customer experience and exceed the customer satisfacton expectation
+- Leverage existing IT investments (APIs, services, content, data etc.) to enable GenAI capabilities
+- Easy, Fast and Cost-effective integration of AI/ML and GenAI capabilities to generate value for business
+- Harness the power AI/ML and GenAI to deliver the best customer experience and exceed the customer satisfaction expectation
 - Uncover the hidden opportunities by leveraging GenAI capabilities
-- Cross sell and upsell servies/offers by understanding customer sentiments
+- Cross sell and upsell services/offers by understanding customer sentiments
 - Retain customer by addressing their concerns before they leave and increase customer loyalty
 
 ## Solutions/Services Used
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
-- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this loßw-code solution to provide human like experience to user and assist them with various rental services.
+- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this low-code solution to provide human like experience to user and assist them with various rental services.
 - **Google -  Node.js SDK** (`@google/generative-ai`) - Consume Gemini via Node.js for building REST APIs
-- Langchain `@langchain/google-genai` - Orachestration with with Google AI
+- Langchain `@langchain/google-genai` - Orchestration with Google AI
 - REST API - APIs are developed **NestJS**. Google Vertex AI Agent uses these API (TOOL)
 - HTML/CSS - Demo page for hosting Vertex AI Chat UI 
 
@@ -40,8 +40,8 @@ Fine-tune LLM using various prompts to train and optimize model to following tas
 
     <img src="./docs/prompt_3.png" />
 
-## Google Vertex AI Assisstant
-Below are  **Visualization** of Vertex AI Assisstant **AGENT** and **TOOL**
+## Google Vertex AI Assistant
+Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
 
 - **AGENTS - handle customer interaction**
 
@@ -55,10 +55,9 @@ Below are  **Visualization** of Vertex AI Assisstant **AGENT** and **TOOL**
 
     <img src="./docs/tool_2.png" width="100%"/>
 
-
 # Introduction
 
-This is a fully functional demo rental car booking Chat Assisstant application that leverages **Google AI** and **Vertex AI Agent/Conversation**. In this application, the Google AI (Gemeni) and Vertex AI Conversational capabilities are leveraged for provide customer that is equivalant to human like agents. The Chat Assitant will help finding car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car expereince) and suggest an offer to the customer based on sentiment analysis. Customer can interact with Google AI (in this case, **gemini-1.0-pro-001**) Vertex AI Assisstant. If the feedback is positive, suggest an offer and if the feedback is negative suggest an alternate offer.
+This is a fully functional demo rental car booking Chat Assistant application that leverages **Google AI** and **Vertex AI Agent/Conversation**. In this application, the Google AI (Gemini) and Vertex AI Conversational capabilities are leveraged for provide customer that is equivalent to human like agents. The Chat Assistant will help finding car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car experience) and suggest an offer to the customer based on sentiment analysis. Customer can interact with Google AI (in this case, **gemini-1.0-pro-001**) Vertex AI Assistant. If the feedback is positive, suggest an offer and if the feedback is negative suggest an alternate offer.
 
  <img src="./docs/vertex_ai_gemini_agent_console.png" /> 
 
@@ -70,7 +69,7 @@ This is a fully functional demo rental car booking Chat Assisstant application t
 # What is included in the implementation?
 <img src="./docs/chat_assisstant_overview.png" /> 
 
-- **1. Google AI (Gemini) Model and Prompts**: Leverage prompt template and promot engineering to interact with customer, analyze customer feedback to determine sentiment and suggest an offer
+- **1. Google AI (Gemini) Model and Prompts**: Leverage prompt template and prompt engineering to interact with customer, analyze customer feedback to determine sentiment and suggest an offer
     - Google AI Studio ([Prompts](https://aistudio.google.com/app/prompts))
     - Google AI Node.js SDK (`@google/generative-ai`) for REST API: https://genai-demo.onrender.com/api
 
@@ -95,12 +94,12 @@ This is a fully functional demo rental car booking Chat Assisstant application t
 - Book a car: `I want to book a Ford in Toronto`, `I want to rent a car for 3 days in Toronto`
 - Find reservation: `find my booking`, `find my reservation detail`
 - Cancel booking: `cancel my rental booking`
-- Sentiment Analyss: `It took us almost three hours just to get a car! It was absurd.`, `The price of car was too high and the whole process took a lot of time.`
+- Sentiment Analysis: `It took us almost three hours just to get a car! It was absurd.`, `The price of car was too high and the whole process took a lot of time.`
 
 # Image Gallery
 
 - **Google Vertex AI Assistant web page integration** integrated with web page: https://genai-demo.onrender.com/site/
-![Vertex AI Assisstant](./docs/web_chat_integration.png "Vertex AI Assisstant Integrated with Web Page")
+![Vertex AI Assistant](./docs/web_chat_integration.png "Vertex AI Assistant Integrated with Web Page")
 
 - **Google Vertex AI Assistant Chat Screens**
     - Use case 1: Booking a rental car
@@ -131,7 +130,7 @@ This is a fully functional demo rental car booking Chat Assisstant application t
         <img src="./docs/feedback_2.png" width="250" /> 
     
 - **NestJS REST APIs and Swagger/Open API**
-    - Google Gemini Service (Swagger/OpenAPI) - for humal like chat using LLMs/Gemini and Sentiment Analysis
+    - Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
 
         <img src="./docs/api_1.png"/>
     
@@ -139,9 +138,8 @@ This is a fully functional demo rental car booking Chat Assisstant application t
 
         <img src="./docs/api_2.png"/>
 
-
 # Setup
-You need an `GOOGLE_API_KEY` Key to run this application. Please see `.env` file for list of environment varibales that you need to configure.
+You need an `GOOGLE_API_KEY` Key to run this application. Please see `.env` file for list of environment variables that you need to configure.
 
 ```bash
 #environment variables
@@ -182,3 +180,5 @@ $ npm run start:prod
 - NestJS: https://nestjs.com
 - Langchain: https://www.langchain.com
 - Site template: colorlib
+
+
