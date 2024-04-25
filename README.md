@@ -2,71 +2,59 @@
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
-# Business Scenario/Use Case
+# Inspiration (Business Scenario)
+The integration of Generative AI (GenAI) capabilities and tools in any industry holds immense potential to revolutionize the customer experience and streamline operations. **Rental Car Industry** is one of those industries.
 
-An existing rental car company want to leverage AI/ML and GenAI (Google AI, Vertex AI's and Low-Code/No-Code) capabilities to provide exceptional customer experience. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot. The company want to understand customer needs/sentiments and adapt quickly.
+My idea is to leverage Google's low-code/no-code AI solutions to revolutionize the customer experience and streamline operations for rental car business.
 
-The company also want to leverage their existing IT investments (e.g., APIs/services that they already have, data and knowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.
+```An existing rental car company want to leverage AI/ML and GenAI (Google AI, Vertex AI's and Low-Code/No-Code) capabilities to provide exceptional customer experience. The GenAI capabilities will allow customers of the rental car company to complete tasks like booking a car, cancellation etc. with help of GenAI trained Chat Bot/Agent. The company want to understand customer needs/sentiments and adapt quickly to keep their customers happy.```
+
+```The company also want to leverage their existing IT investments (e.g., APIs/services that they already have, data and knowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.```
 
 Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
 
-## Business impact
-- Leverage existing IT investments (APIs, services, content, data etc.) to enable GenAI capabilities
+## 
+
+## What it does (Business impact)? 
+As part of this implementation, a fully functional AI Chat Agent is developed using Google's AI services. 
+
+The implementation will help both sides (rental car customer as well as rental car companies).
+
+### What a Rental car business will get?
+- GenAI capabilities will uncover the hidden opportunities for a rental car business by learning from existing knowledgebase
+- Allow business to cross-sell and upsell services/products/offers by understanding customer needs and sentiments
+- Retain customer by addressing their concerns before they leave and increase customer loyalty
+- Leverage **existing IT investments** (APIs, services, content, data etc.) to enable GenAI capabilities at **lightning speed**
 - Easy, Fast and Cost-effective integration of AI/ML and GenAI capabilities to generate value for business
 - Harness the power AI/ML and GenAI to deliver the best customer experience and exceed the customer satisfaction expectation
-- Uncover the hidden opportunities by leveraging GenAI capabilities
-- Cross sell and upsell services/offers by understanding customer sentiments
-- Retain customer by addressing their concerns before they leave and increase customer loyalty
 
-## Solutions/Services Used
-- **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts])
-- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] - used this low-code solution to provide human like experience to user and assist them with various rental services.
-- **Google -  Node.js SDK** (`@google/generative-ai`) - Consume Gemini via Node.js for building REST APIs
-- Langchain `@langchain/google-genai` - Orchestration with Google AI
-- REST API - APIs are developed **NestJS**. Google Vertex AI Agent uses these API (TOOL)
-- HTML/CSS - Demo page for hosting Vertex AI Chat UI 
+### What Customers will get?
+- An exceptional experience of interacting with GenAI based chat agent (not like traditional chat bots)
+- Complete tasks like rental car booking, cancellation, booking lookup and provide feedback about service
+- A real human like experience through the interaction with AI Bot
+- Get more contextual information that sometime humans may not have or remember
+- Avail rental car related service 24x7 with same quality and accuracy
 
-## Google AI Studio
-Fine-tune LLM using various prompts to train and optimize model to following tasks:
-- Provide rental car related response to user
-    
-    <img src="./docs/prompt_1.png" />
+## How we built it?
+Following tools and technologies are used to building this solution/demo:
 
-- Perform sentiment analysis of the feedback provided by user
+- **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
+    - Used for finetuning AI Agent response using prompt engineering/system instructions
+    - Used of sentiment analysis of user feedback/comments (using Google Node.js SDK)
+- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
+    - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
+- **Google -  Node.js SDK** (`@google/generative-ai` and `@langchain/google-genai`) 
+    - Interact with Gemini via Node.js for building REST APIs
+- **NestJS** 
+    - For building REST API. Google Vertex AI Agent uses these API (TOOL)
+- HTML/CSS 
+    - Demo page for hosting Vertex AI Chat UI 
 
-    <img src="./docs/prompt_2.png" />
+This is a fully functional Virtual AI Chat Agent (demo) for a rental car booking business. The application uses **Google AI Studio/Gemini** and **Vertex AI Agent/Conversation** primarily. 
 
-- Based on training (prompts), suggest an offer to unsatisfied customer
+The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide an exceptional customer experience to a rental car company. The AI Agent will help customers finding a right car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car experience). If the feedback is negative/unsatisfied, suggest an offer to retain and make them happy.
 
-    <img src="./docs/prompt_3.png" />
-
-## Google Vertex AI Assistant
-Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
-
-- **AGENTS - handle customer interaction**
-
-    <img src="./docs/agent_1.png" />
-
-    <img src="./docs/agent_2.png" />
-
-- **TOOLS - invoke external systems/APIs via OpenAPI Integration**
-
-    <img src="./docs/tool_1.png" width="100%"/>
-
-    <img src="./docs/tool_2.png" width="100%"/>
-
-# Introduction
-
-This is a fully functional demo rental car booking Chat Assistant application that leverages **Google AI** and **Vertex AI Agent/Conversation**. In this application, the Google AI (Gemini) and Vertex AI Conversational capabilities are leveraged for provide customer that is equivalent to human like agents. The Chat Assistant will help finding car, booking a car, sending email confirmation, cancelling booking, perform sentiment analysis of customer feedback (about rental car experience) and suggest an offer to the customer based on sentiment analysis. Customer can interact with Google AI (in this case, **gemini-1.0-pro-001**) Vertex AI Assistant. If the feedback is positive, suggest an offer and if the feedback is negative suggest an alternate offer.
-
- <img src="./docs/vertex_ai_gemini_agent_console.png" /> 
-
-# Live Demo
-- Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
-- Swagger UI: [https://genai-demo.onrender.com/api](https://genai-demo.onrender.com/api)
-- Swagger JSON: [https://genai-demo.onrender.com/api-json](https://genai-demo.onrender.com/api-json)
-
-# What is included in the implementation?
+### What is included in the implementation?
 <img src="./docs/chat_assisstant_overview.png" /> 
 
 - **1. Google AI (Gemini) Model and Prompts**: Leverage prompt template and prompt engineering to interact with customer, analyze customer feedback to determine sentiment and suggest an offer
@@ -90,11 +78,68 @@ This is a fully functional demo rental car booking Chat Assistant application th
 - **4. Web Application**: A web page/application integrated with Vertex AI Assistant Web Chat for demo. 
     - Demo: https://genai-demo.onrender.com/site
 
+### Challenges we ran into
+- A little research and planning was needed to understand how to stich various GenAI capabilities together
+- Choosing a use case for implementation that demonstrates Google's AI capabilities as well as provides business value was not easy
+- Initially the API integration (via Node.js) was not available for Gemini 1.5 Pro
+- Hosting demo (eventually hosted on a free cloud service render.com)
+
+### Accomplishments that we're proud of
+- Able to build and deliver an end-to-end working business use case leveraging Google's capabilities
+- Learning and gaining knowledge about Google's AI capabilities
+
+### What we learned
+- This is my first project using Google's AI services and I learned a lot
+- Learned about various capabilities and services offered by Google to enable GenAI capabilities of an individual and businesses
+- Was able to compare Google's services with other similar services
+
+### What's next for Customer Experience AI (CxAI)
+For this demo, only a small subset of use cases was developed to demonstrate **Art of the Possible** with Google's AI capabilities. The possibilities with GenAI in customer experience space are exciting and endless. It will be and interesting project to explore further by adding more capabilities
+
+## Live Demo
+- Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
+- Swagger UI: [https://genai-demo.onrender.com/api](https://genai-demo.onrender.com/api)
+- Swagger JSON: [https://genai-demo.onrender.com/api-json](https://genai-demo.onrender.com/api-json)
+
 ## Example Customer Interactions to try with the Vertex AI Assistant
 - Book a car: `I want to book a Ford in Toronto`, `I want to rent a car for 3 days in Toronto`
 - Find reservation: `find my booking`, `find my reservation detail`
 - Cancel booking: `cancel my rental booking`
 - Sentiment Analysis: `It took us almost three hours just to get a car! It was absurd.`, `The price of car was too high and the whole process took a lot of time.`
+
+# Want to learn more about the solution?
+More details about tools/services that are used for developing the solution.
+
+## Google AI Studio
+Fine-tune LLM using various prompts to train and optimize model to perform following tasks:
+- Interact (like real human) with customers and assist them with a rental car booking, cancellation etc.
+    
+    <img src="./docs/prompt_1.png" />
+
+- Perform sentiment analysis of the feedback provided by customers
+
+    <img src="./docs/prompt_2.png" />
+
+- Based on training (prompts, instructions), suggest suitable offer to an unsatisfied customer
+
+    <img src="./docs/prompt_3.png" />
+
+## Google Vertex AI Assistant
+Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
+
+<img src="./docs/vertex_ai_gemini_agent_console.png" /> 
+
+- **AGENTS - handle customer interaction**
+
+    <img src="./docs/agent_1.png" />
+
+    <img src="./docs/agent_2.png" />
+
+- **TOOLS - invoke external systems/APIs via OpenAPI Integration**
+
+    <img src="./docs/tool_1.png" width="100%"/>
+
+    <img src="./docs/tool_2.png" width="100%"/>
 
 # Image Gallery
 
@@ -171,7 +216,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-# Access Web application and chat
+# Localhost access
 - To access web application locally visit: http://localhost:3000/site
 - Access chat: locate the chat icon on bottom right corner
 
@@ -180,5 +225,6 @@ $ npm run start:prod
 - NestJS: https://nestjs.com
 - Langchain: https://www.langchain.com
 - Site template: colorlib
+
 
 
