@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { WatsonxSentimentRequest } from './models';
+import { SentimentRequest } from './models';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -17,7 +17,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getSentiment(new WatsonxSentimentRequest())).toBe('Hello World!');
+      expect(appController.getSentiment(new SentimentRequest())).toBe('Hello World!');
     });
   });
 });

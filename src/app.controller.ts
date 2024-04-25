@@ -1,7 +1,7 @@
 import { Body, Controller,  Get,  HttpCode, HttpStatus, Param, Post, Redirect } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Offer, SentimentOfferResponse, WatsonxSentimentRequest, ChatResponse, ChatRequest } from './models';
+import { Offer, SentimentOfferResponse, ChatResponse, ChatRequest, SentimentRequest } from './models';
 import { GoogleAIService } from './google-ai.service';
 
 @Controller()
@@ -28,7 +28,7 @@ export class AppController {
   @Post('/feedback')
   @ApiOperation({summary: 'provides sentiment analysis about customer feedback and suggest and offer'})
   @ApiResponse({ status: 200, description: 'Success', type:  SentimentOfferResponse})
-  async submitFeedback(@Body() req: WatsonxSentimentRequest): Promise<SentimentOfferResponse> {
+  async submitFeedback(@Body() req: SentimentRequest): Promise<SentimentOfferResponse> {
     return this.googleService.getSentimentAndOffer(req.text);
   }
 
@@ -44,7 +44,7 @@ export class AppController {
   @Post('/sentiment')
   @ApiOperation({summary: 'get sentiment of user feedback'})
   @ApiResponse({ status: 200, description: 'Success', type:  ChatResponse})
-  async getSentiment(@Body() req: WatsonxSentimentRequest): Promise<ChatResponse> {
+  async getSentiment(@Body() req: SentimentRequest): Promise<ChatResponse> {
     return this.googleService.getSentiment(req.text);
   } 
  

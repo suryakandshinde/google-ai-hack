@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsArray, IsBoolean, IsString } from "class-validator";
 
-export class WatsonxSentimentRequest {
+export class SentimentRequest {
     @IsString()
     @ApiProperty({ example: 'The cost of the car was very reasonable and I was very happy with the service.', description: 'Request/Text entered by used and sent to Prompt template.', required: true })
     readonly text: string;  
@@ -18,13 +18,13 @@ export class ChatRequest {
 
 export class ChatResponse {
     @IsString()
-    @ApiProperty({ example: '0', description: 'Response from Watsonx', required: true })
+    @ApiProperty({ example: '0', description: 'Response from AI', required: true })
     text: string;  
 }
 
 export class SentimentOfferResponse {
     @IsString()
-    @ApiProperty({ example: '0', description: 'Response from Watsonx', required: true })
+    @ApiProperty({ example: '0', description: 'Response from AI', required: true })
     sentiment: string;
 
     @IsString()

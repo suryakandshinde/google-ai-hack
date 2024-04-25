@@ -15,10 +15,10 @@ export class AppService {
     `;
 
     const sentimentRequest = await ci.runGooglePrompt(prompt, history);
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = sentimentRequest.text();
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = sentimentRequest.text();
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   async getSentiment(inputText: string): Promise<ChatResponse> {
@@ -51,10 +51,10 @@ export class AppService {
 
 
     const sentimentRequest = await ci.runGooglePrompt(prompt);
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = sentimentRequest.text();
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = sentimentRequest.text();
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   async getOffer(inputText: string): Promise<any> {
@@ -123,10 +123,10 @@ export class AppService {
     const chatPrompt = `Generate next best offer to unsatisfied customer. Choose offer recommendation from the following list: 'On-demand pickup location', 'Free Upgrade', 'Voucher', 'Premium features'.    Slow, long lineup    On-demand pickup location    I do not  understand why I have to pay additional fee if vehicle is returned without a full tank.    Premium features    Based on the customer service personnel I encountered most recently, I would say it is vastly preferable for the personnel to be able to at least pretend to care whether the customer ever actually receives a car rental that was reserved months in advance.    On-demand pickup location    VERY slow service!    Free Upgrade    Please lower the prices.    Free Upgrade    Customer is important for the enjoyment of the car.  If it's a bad experience we won't return to that company if we can avoid it - they should remember abotut this    Voucher    the rep was friendly but it was so loud in there that I could not hear what she was saying. I HATE having to walk across a big lot with all of my bags in search of my car which is always in the furthest corner.    On-demand pickup location    It was absolutely ATROCIOUS! My wife and I were in a foreign country  when we realized that our car had an expired license plate and expired proof of insurance!    Voucher    The people where generally good, but overworked.  The printer went down.  The poor woman working the register was about to pull her hair out.  Customers were yelling at her, not me, but she was not in charge of the issues.    On-demand pickup location    They should upgrade me every time.    Free Upgrade    Most windows were closed.    On-demand pickup location    car cost more because I didn't pay when I reserved it    Free Upgrade    It took us almost three hours just to get a car! It was absurd.    On-demand pickup location    Provide more convenient car pickup from the airport parking.    On-demand pickup location    I haven't actually spoken with anyone from a car rental organization for quite a while.  When I did (probably about three years ago), I believe they were polite enough. However, I always hate to wait in lines when we have a lot of luggage.    Free Upgrade    They could really try work harder.    Free Upgrade    I had to wait in line for a long time to get and return the vehicle.  Also, the car was not clean.    Voucher    ${inputText}`;
 
     const sentimentRequest = await ci.runGooglePrompt(prompt);
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = sentimentRequest.text().replace('Offer: ', '').trim();
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = sentimentRequest.text().replace('Offer: ', '').trim();
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   async getSentimentAndOffer(userInput) {
@@ -139,11 +139,11 @@ export class AppService {
     const offerResponse = await ci.getOffer(userInput);
 
     // Combine sentiment and offer
-    let watsonxResponse: SentimentOfferResponse = new SentimentOfferResponse();
-    watsonxResponse.sentiment = sentimentResponse.text;
-    watsonxResponse.offer = offerResponse.text;
+    let aiResponse: SentimentOfferResponse = new SentimentOfferResponse();
+    aiResponse.sentiment = sentimentResponse.text;
+    aiResponse.offer = offerResponse.text;
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   private async runGooglePrompt(prompt: string, history?: Array<any>) {

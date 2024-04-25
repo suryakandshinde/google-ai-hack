@@ -40,10 +40,10 @@ export class GoogleAIService {
     let ci = this;
 
     let response = await ci.runGooglePromptWithFunctions(inputText, history);
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = response.candidates[0].content.parts[0].text;
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = response.candidates[0].content.parts[0].text;
 
-    return watsonxResponse;    
+    return aiResponse;    
   }
 
   //Chat using langchain
@@ -77,10 +77,10 @@ export class GoogleAIService {
 
     const res = await model.invoke(input2);
 
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = res.content.toString();
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = res.content.toString();
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   async getSentiment(inputText: string): Promise<ChatResponse> {
@@ -89,9 +89,9 @@ export class GoogleAIService {
     const prompt = sentimentPrompt(inputText);
     const sentimentRequest = await ci.runGooglePrompt(prompt);
 
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = sentimentRequest.text();
-    return watsonxResponse;
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = sentimentRequest.text();
+    return aiResponse;
   }
 
   async getOffer(inputText: string): Promise<any> {
@@ -100,9 +100,9 @@ export class GoogleAIService {
     const prompt = offerPrompt(inputText);
     const sentimentRequest = await ci.runGooglePrompt(prompt);
 
-    let watsonxResponse: ChatResponse = new ChatResponse();
-    watsonxResponse.text = sentimentRequest.text().replace('Offer: ', '').trim();
-    return watsonxResponse;
+    let aiResponse: ChatResponse = new ChatResponse();
+    aiResponse.text = sentimentRequest.text().replace('Offer: ', '').trim();
+    return aiResponse;
   }
 
   async getSentimentAndOffer(userInput) {
@@ -115,11 +115,11 @@ export class GoogleAIService {
     const offerResponse = await ci.getOffer(userInput);
 
     // Combine sentiment and offer
-    let watsonxResponse: SentimentOfferResponse = new SentimentOfferResponse();
-    watsonxResponse.sentiment = sentimentResponse.text;
-    watsonxResponse.offer = offerResponse.text;
+    let aiResponse: SentimentOfferResponse = new SentimentOfferResponse();
+    aiResponse.sentiment = sentimentResponse.text;
+    aiResponse.offer = offerResponse.text;
 
-    return watsonxResponse;
+    return aiResponse;
   }
 
   private async runGooglePrompt(prompt: string, history?: Array<any>) {
