@@ -44,8 +44,8 @@ Following tools and technologies are used to building this solution/demo:
 
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
     - Used for finetuning AI Agent response using prompt engineering/system instructions and example scenarios (few-shot prompting)
-    - Used for sentiment analysis of user feedback/comments (using Google Node.js SDK)
-    - Used for suggesting an promotional offer to a customer based on sentiment analysis of feedback (if feedback was negative)
+    - Used for sentiment analysis of customer feedback/comments (using Google Node.js SDK)
+    - Used for suggesting a promotional offer to customers based on sentiment analysis of feedback (if feedback was negative)
     - [Read more about implementation](#google-ai-studio)
 - **Google Vertex AI Agent/Conversation and Dialogflow (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
     - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
@@ -157,13 +157,14 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/tool_2.png" width="100%"/>
 
 ## NestJS REST APIs and Swagger/Open API
-    - Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
+- Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
 
-        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_1.png"/>
-    
-    - Rental Car Services  - for rental car related service (book a car, cancel booking, search booking)
+    <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_1.png" />
 
-        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_2.png"/>
+- Rental Car Services  - for rental car related service (book a car, cancel booking, search booking)
+
+    <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_2.png"/>
+
 
 # Image Gallery
 
