@@ -48,7 +48,7 @@ Following tools and technologies are used to building this solution/demo:
 - **NestJS** 
     - For building REST API. Google Vertex AI Agent uses these API (TOOL)
     - [Read more about implementation](#nestjs-rest-apis-and-swaggeropen-api) 
-- HTML/CSS 
+- **Static Web Page (HTML/CSS)**
     - Demo page for hosting Vertex AI Chat UI 
     - [Read more about implementation](#live-demo) 
 
