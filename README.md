@@ -2,6 +2,10 @@
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
+# Video Demo/Pitch:
+- Demo Pitch/Presentaton: https://youtu.be/4TmRceCyK30
+- Low/No-Code Demo Presentation: https://youtu.be/IQtdmEWIGwQ
+
 # Inspiration (Business Scenario)
 The integration of Generative AI (GenAI) capabilities and tools in any industry holds immense potential to revolutionize the customer experience and streamline operations. **Rental Car Industry** is one of those industries.
 
@@ -36,11 +40,13 @@ The implementation will help both sides (rental car customer as well as rental c
 ## How we built it?
 Following tools and technologies are used to building this solution/demo:
 
+**Google Project ID**: woven-mesh-421014 (name: Google AI Hack 2024)
+
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
     - Used for finetuning AI Agent response using prompt engineering/system instructions
     - Used of sentiment analysis of user feedback/comments (using Google Node.js SDK)
     - [Read more about implementation](#google-ai-studio)
-- **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
+- **Google Vertex AI Agent/Conversation and Dialogflow (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
     - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
     - [Read more about implementation](#google-vertex-ai-assistant)    
 - **Google -  Node.js SDK** (`@google/generative-ai` and `@langchain/google-genai`) 
@@ -234,6 +240,3 @@ $ npm run start:prod
 - NestJS: https://nestjs.com
 - Langchain: https://www.langchain.com
 - Site template: colorlib
-
-
-
