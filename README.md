@@ -39,14 +39,18 @@ Following tools and technologies are used to building this solution/demo:
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
     - Used for finetuning AI Agent response using prompt engineering/system instructions
     - Used of sentiment analysis of user feedback/comments (using Google Node.js SDK)
+    - [Read more about implementation](#google-ai-studio)
 - **Google Vertex AI Agent/Conversation (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
     - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
+    - [Read more about implementation](#google-vertex-ai-assistant)    
 - **Google -  Node.js SDK** (`@google/generative-ai` and `@langchain/google-genai`) 
     - Interact with Gemini via Node.js for building REST APIs
 - **NestJS** 
     - For building REST API. Google Vertex AI Agent uses these API (TOOL)
+    - [Read more about implementation](#nestjs-rest-apis-and-swaggeropen-api) 
 - HTML/CSS 
     - Demo page for hosting Vertex AI Chat UI 
+    - [Read more about implementation](#live-demo) 
 
 This is a fully functional AI Chat Agent/Assistant powered by Google AI for a rental car business. The application uses **Google AI Studio/Gemini** and **Vertex AI Agent/Conversation** primarily. 
 
@@ -58,7 +62,7 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
 - **1. Google AI (Gemini) Model and Prompts**: Leverage prompt template and prompt engineering to interact with customer, analyze customer feedback to determine sentiment and suggest an offer
     - Google AI Studio ([Prompts](https://aistudio.google.com/app/prompts))
     - Google AI Node.js SDK (`@google/generative-ai`) for REST API: https://genai-demo.onrender.com/api
-    - [Read More Implementation Detail](#google-ai-studio)
+    - [Read more about implementation](#google-ai-studio)
 
 - **2. Google Vertex AI Agent**: Vertex AI Assistant for interactive chat. Following features are implemented using Vertex AI Assistant:
     - Assist user finding a rental car (with specific make, model, in a particular city etc.)
@@ -67,7 +71,7 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
     - Analyze the feedback (sentiment analysis) dynamically using the Gemini Node.js SDK (integrated via Agent TOOL)
     - Suggest an appropriate offer to customer based on the sentiment analysis of the feedback
     - Use Vertex AI AGENT and TOOL to interact with existing business functions (via existing REST API)  
-    - [Read More Implementation Detail](#google-vertex-ai-assistant)    
+    - [Read more about implementation](#google-vertex-ai-assistant)    
 
 - **3. REST API/Open API/Swagger**: `REST API and Swagger/YAML` to create a custom integration (Agent TOOL) for Vertex AI Assistant. 
     - REST APIs to perform rental car related operations (list car, booking, cancellaton etc.)
@@ -75,12 +79,12 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
     - Vertex AI Agent will be able to provide contextual information/response to customer
     - Gemini integration will analyze customer feedback to determine sentiment and suggest an offer to unsatisfied customers
     - OpenAPI/Swagger definition: https://genai-demo.onrender.com/api
-    - [Read More Implementation Detail](#nestjs-rest-apis-and-swaggeropen-api)    
+    - [Read more about implementation](#nestjs-rest-apis-and-swaggeropen-api)    
 
 
 - **4. Web Application**: A web page/application integrated with Vertex AI Assistant Web Chat for demo. 
     - Demo: https://genai-demo.onrender.com/site
-    - [Read More Implementation Detail](#live-demo) 
+    - [Read more about implementation](#live-demo) 
 
 ### Challenges we ran into
 - A little research and planning was needed to understand how to stich various GenAI capabilities together
