@@ -3,8 +3,8 @@
 </code>
 
 # Video Demo/Pitch:
-- Demo Pitch/Presentaton: https://youtu.be/4TmRceCyK30
 - Low/No-Code Demo Presentation: https://youtu.be/IQtdmEWIGwQ
+- Demo Pitch/Presentation: https://youtu.be/4TmRceCyK30
 
 # Inspiration (Business Scenario)
 The integration of Generative AI (GenAI) capabilities and tools in any industry holds immense potential to revolutionize the customer experience and streamline operations. **Rental Car Industry** is one of those industries.
