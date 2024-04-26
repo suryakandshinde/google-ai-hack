@@ -43,8 +43,9 @@ Following tools and technologies are used to building this solution/demo:
 **Google Project ID**: woven-mesh-421014 (name: Google AI Hack 2024)
 
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
-    - Used for finetuning AI Agent response using prompt engineering/system instructions
-    - Used of sentiment analysis of user feedback/comments (using Google Node.js SDK)
+    - Used for finetuning AI Agent response using prompt engineering/system instructions and example scenarios (few-shot prompting)
+    - Used for sentiment analysis of user feedback/comments (using Google Node.js SDK)
+    - Used for suggesting an promotional offer to a customer based on sentiment analysis of feedback (if feedback was negative)
     - [Read more about implementation](#google-ai-studio)
 - **Google Vertex AI Agent/Conversation and Dialogflow (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
     - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
