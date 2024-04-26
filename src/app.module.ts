@@ -4,7 +4,6 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { GoogleAIService } from './google-ai.service';
 import { DemoDBModule } from './database/demodb.module';
 import { MailService } from './mail/mail-service';

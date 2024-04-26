@@ -1,5 +1,4 @@
 import { Body, Controller,  Get,  HttpCode, HttpStatus, Param, Post, Redirect } from '@nestjs/common';
-import { AppService } from './app.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Offer, SentimentOfferResponse, ChatResponse, ChatRequest, SentimentRequest } from './models';
 import { GoogleAIService } from './google-ai.service';
