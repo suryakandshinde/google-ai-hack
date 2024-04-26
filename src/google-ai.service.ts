@@ -126,9 +126,9 @@ export class GoogleAIService {
     let ci = this;
 
     const MODEL_NAME = process.env.MODEL_ID;
-    const API_KEY = process.env.API_KEY;
+    const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
-    const genAI = new GoogleGenerativeAI(API_KEY);
+    const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
     const generationConfig = {
@@ -159,7 +159,7 @@ export class GoogleAIService {
     let ci = this;
 
     const MODEL_NAME = process.env.MODEL_ID;
-    const API_KEY = process.env.API_KEY;
+    const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
   
     const generationConfig = {
       temperature: 0,
@@ -171,7 +171,7 @@ export class GoogleAIService {
     const FUNCTIONS = ci.functionAndTools().functions;
     const tools = ci.functionAndTools().tools;
 
-    const genAI = new GoogleGenerativeAI(API_KEY);
+    const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
     const model = genAI.getGenerativeModel(
       { 
         generationConfig,
