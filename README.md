@@ -58,6 +58,7 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
 - **1. Google AI (Gemini) Model and Prompts**: Leverage prompt template and prompt engineering to interact with customer, analyze customer feedback to determine sentiment and suggest an offer
     - Google AI Studio ([Prompts](https://aistudio.google.com/app/prompts))
     - Google AI Node.js SDK (`@google/generative-ai`) for REST API: https://genai-demo.onrender.com/api
+    - [Read More Implementation Detail](#google-ai-studio)
 
 - **2. Google Vertex AI Agent**: Vertex AI Assistant for interactive chat. Following features are implemented using Vertex AI Assistant:
     - Assist user finding a rental car (with specific make, model, in a particular city etc.)
@@ -65,18 +66,21 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
     - Use Vertex AI Assistant to collect customer feedback about the rental car service  
     - Analyze the feedback (sentiment analysis) dynamically using the Gemini Node.js SDK (integrated via Agent TOOL)
     - Suggest an appropriate offer to customer based on the sentiment analysis of the feedback
-    - Use Vertex AI AGENT and TOOL to interact with existing business functions (via existing REST API)      
+    - Use Vertex AI AGENT and TOOL to interact with existing business functions (via existing REST API)  
+    - [Read More Implementation Detail](#google-vertex-ai-assistant)    
 
 - **3. REST API/Open API/Swagger**: `REST API and Swagger/YAML` to create a custom integration (Agent TOOL) for Vertex AI Assistant. 
     - REST APIs to perform rental car related operations (list car, booking, cancellaton etc.)
     - Vertex AI Agent will use these API (via TOOL capability of Agent App) to perform business action via chat
     - Vertex AI Agent will be able to provide contextual information/response to customer
     - Gemini integration will analyze customer feedback to determine sentiment and suggest an offer to unsatisfied customers
-    - OpenAPI/Swagger definition: https://genai-demo.onrender.com/api    
+    - OpenAPI/Swagger definition: https://genai-demo.onrender.com/api
+    - [Read More Implementation Detail](#nestjs-rest-apis-and-swaggeropen-api)    
 
 
 - **4. Web Application**: A web page/application integrated with Vertex AI Assistant Web Chat for demo. 
     - Demo: https://genai-demo.onrender.com/site
+    - [Read More Implementation Detail](#live-demo) 
 
 ### Challenges we ran into
 - A little research and planning was needed to understand how to stich various GenAI capabilities together
@@ -141,6 +145,15 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
 
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/tool_2.png" width="100%"/>
 
+## NestJS REST APIs and Swagger/Open API
+    - Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
+
+        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_1.png"/>
+    
+    - Rental Car Services  - for rental car related service (book a car, cancel booking, search booking)
+
+        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_2.png"/>
+
 # Image Gallery
 
 - **Google Vertex AI Assistant web page integration** integrated with web page: https://genai-demo.onrender.com/site/
@@ -173,15 +186,7 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
         <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/feedback_1.png" width="250" /> 
 
         <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/feedback_2.png" width="250" /> 
-    
-- **NestJS REST APIs and Swagger/Open API**
-    - Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
 
-        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_1.png"/>
-    
-    - Rental Car Services  - for rental car related service (book a car, cancel booking, search booking)
-
-        <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_2.png"/>
 
 # Setup
 You need an `GOOGLE_API_KEY` Key to run this application. Please see `.env` file for list of environment variables that you need to configure.
