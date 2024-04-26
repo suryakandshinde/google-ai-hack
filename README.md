@@ -15,7 +15,7 @@ My idea is to leverage Google's low-code/no-code AI solutions to revolutionize t
 
 ```The company also want to leverage their existing IT investments (e.g., APIs/services that they already have, data and knowledge base) to deliver cutting edge GenAI capabilities in **cost efficient manner**.```
 
-Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
+Live Demo  (wait for 30 seconds to restart server on your first request): [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
 
 
 ## What it does (Business impact)? 
@@ -93,39 +93,41 @@ The Google AI (Gemini) and Vertex AI Agent capabilities are leveraged to provide
     - Demo: https://genai-demo.onrender.com/site
     - [Read more about implementation](#live-demo) 
 
-### Challenges we ran into
+## Challenges we ran into
 - A little research and planning was needed to understand how to stich various GenAI capabilities together
 - Choosing a use case for implementation that demonstrates Google's AI capabilities as well as provides business value was not easy
 - Initially the API integration (via Node.js) was not available for Gemini 1.5 Pro
 - Hosting demo (eventually hosted on a free cloud service render.com)
 
-### Accomplishments that we're proud of
+## Accomplishments that we're proud of
 - Able to build and deliver an end-to-end working business use case leveraging Google's capabilities
 - Learning and gaining knowledge about Google's AI capabilities
 
-### What we learned
+## What we learned
 - This is my first project using Google's AI services and I learned a lot
 - Learned about various capabilities and services offered by Google to enable GenAI capabilities of an individual and businesses
 - Was able to compare Google's services with other similar services
 
-### What's next for Customer Experience AI (CxAI)
+## What's next for Customer Experience AI (CxAI)
 For this demo, only a small subset of use cases was developed to demonstrate **Art of the Possible** with Google's AI capabilities. The possibilities with GenAI in customer experience space are exciting and endless. It will be and interesting project to explore further by adding more capabilities
 
 ## Live Demo
+ Wait for 30 seconds to restart server on your first request.
+
 - Live Demo: [https://genai-demo.onrender.com/site/](https://genai-demo.onrender.com/site/) (deployed on render.com for demo)
 - Swagger UI: [https://genai-demo.onrender.com/api](https://genai-demo.onrender.com/api)
 - Swagger JSON: [https://genai-demo.onrender.com/api-json](https://genai-demo.onrender.com/api-json)
 
-## Example Customer Interactions to try with the Vertex AI Assistant
+### Example Customer Interactions to try with the Vertex AI Assistant
 - Book a car: `I want to book a Ford in Toronto`, `I want to rent a car for 3 days in Toronto`
 - Find reservation: `find my booking`, `find my reservation detail`
 - Cancel booking: `cancel my rental booking`
 - Sentiment Analysis: `It took us almost three hours just to get a car! It was absurd.`, `The price of car was too high and the whole process took a lot of time.`
 
-# Want to learn more about the solution?
+## Want to learn more about the solution?
 More details about tools/services that are used for developing the solution.
 
-## Google AI Studio
+### Google AI Studio
 Fine-tune LLM using various prompts to train and optimize model to perform following tasks:
 - Interact (like real human) with customers and assist them with a rental car booking, cancellation etc.
     
@@ -139,7 +141,7 @@ Fine-tune LLM using various prompts to train and optimize model to perform follo
 
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/prompt_3.png" />
 
-## Google Vertex AI Assistant
+### Google Vertex AI Assistant
 Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
 
 <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/vertex_ai_gemini_agent_console.png" /> 
@@ -156,7 +158,7 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
 
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/tool_2.png" width="100%"/>
 
-## NestJS REST APIs and Swagger/Open API
+### NestJS REST APIs and Swagger/Open API
 - Google Gemini Service (Swagger/OpenAPI) - for human like chat using LLMs/Gemini and Sentiment Analysis
 
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_1.png" />
@@ -166,7 +168,7 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
     <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/api_2.png"/>
 
 
-# Image Gallery
+## Image Gallery
 
 - **Google Vertex AI Assistant web page integration** integrated with web page: https://genai-demo.onrender.com/site/
 ![Vertex AI Assistant](https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/web_chat_integration.png "Vertex AI Assistant Integrated with Web Page")
@@ -213,14 +215,14 @@ GOOGLE_API_KEY=[YOUR GOOGLE API KEY]
 PROJECT_ID=[YOUR GOOGLE PROJECT ID]
 ```
 
-# Install dependencies
+## Install dependencies
 
 ```bash
 # Install dependencies
 $ npm install
 ```
 
-# Running the app locally
+## Running the app locally
 
 ```bash
 # development
@@ -233,7 +235,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-# Localhost access
+## Localhost access
 - To access web application locally visit: http://localhost:3000/site
 - Access chat: locate the chat icon on bottom right corner
 
