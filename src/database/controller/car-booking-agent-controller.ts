@@ -60,6 +60,6 @@ export class CarRetalController {
     @ApiResponse({ status: 200, description: 'Success', type:  GeneralStatus})
     async sendBookingDetailViaEmail(@Body() req: BookingDetailRequest): Promise<GeneralStatus> {
         const ci = this;
-        return await ci.carService.sendBookingConfirmationMail(req.bookingId);
+        return await ci.carService.sendMail(req.bookingId, 'Your booking is confirmed', './confirmation.hbs')
     }
 }

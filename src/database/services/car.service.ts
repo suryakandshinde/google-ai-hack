@@ -49,77 +49,35 @@ export class CarService {
     }  
 
     async bookCar(carId: number, rentalStartDate: Date, rentalEndDate: Date, rentalCityDrop: string, customerName: string, customerEmail: string): Promise<CarBooking> {
+        let ci = this;
         let booking = await this.crudCarBookingService.bookCar(carId, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail);
 
         if(booking) { // Send confirmation email
-            await this.sendBookingConfirmationMail(booking.id);
+            await ci.sendMail(booking.id, 'Your booking is confirmed', './confirmation.hbs');
         }
 
         return booking;
     }    
-
-    async sendBookingConfirmationMail(bookingId): Promise<GeneralStatus> {
-        const ci = this;
-
-        if(bookingId) {
-            let booking = await ci.getBookingDetail(bookingId);
-            if(booking) {
-                let req: MailRequest = new MailRequest();
-                req.email = booking.customerEmail;
-                req.subject = `Your booking is confirmed | Booking Confirmation #: ${booking.id}`
-                return this.mailService.sendMailUsingTemplate(req, './confirmation.hbs', { 
-                    id: booking.id,
-                    customerName: booking.customerName,
-                    rentalCityDrop: booking.rentalCityDrop,
-                    make: booking.car.make,
-                    model: booking.car.model,
-                    year: booking.car.year,
-                    city: booking.car.city,
-                    imageUrl: booking.car.imageUrl,
-                    rentalPrice: booking.car.rentalPrice,
-                });
-            }
-        }
-    } 
     
     async cancelBooking(bookingId): Promise<GeneralStatus> {
         const ci = this;
         const status = await ci.crudCarBookingService.cancelBooking(bookingId);
         if(status.status) {
             if(bookingId) { // Send confirmation email
-                await this.sendBookingCancellationMail(bookingId);
+                await ci.sendMail(bookingId, 'Your booking is cancelled', './cancellation.hbs');
             }            
         }
 
         return status;
     }     
-    
-    async sendBookingCancellationMail(bookingId): Promise<any> {
-        const ci = this;
 
-        if(bookingId) {
-            let booking = await ci.getBookingDetail(bookingId);
-            if(booking) {
-                let req: MailRequest = new MailRequest();
-                req.email = booking.customerEmail;
-                req.subject = `Your booking is cancelled | Booking Confirmation #: ${booking.id}`
-                return this.mailService.sendMailUsingTemplate(req, './cancellation.hbs', { 
-                    id: booking.id,
-                    customerName: booking.customerName,
-                    rentalCityDrop: booking.rentalCityDrop,
-                    make: booking.car.make,
-                    model: booking.car.model,
-                    year: booking.car.year,
-                    city: booking.car.city,
-                    imageUrl: booking.car.imageUrl,
-                    rentalPrice: booking.car.rentalPrice,
-                });
-            }
-        }
-    }
+    async updateCarBookingDate(bookingId, rentalStartDate: Date, rentalEndDate: Date): Promise<CarBooking> {
+        let ci = this;
 
-    async updateCarBooingStartDate(bookingId, rentalStartDate: Date): Promise<CarBooking> {
-        return await this.crudCarBookingService.updateCarBooingStartDate(bookingId, rentalStartDate);
+        let response = await ci.crudCarBookingService.updateCarBookingDate(bookingId, rentalStartDate, rentalEndDate);
+        await ci.sendMail(bookingId, 'Your booking is updated', './confirmation.hbs');
+
+        return response;
     } 
 
     private getCarQueryBuilder(model, availabilityStatus, city, limit?: number): SelectQueryBuilder<Car> {
@@ -142,4 +100,32 @@ export class CarService {
         return qb;
     }
 
+
+    async sendMail(bookingId, subject, template): Promise<GeneralStatus> {
+        const ci = this;
+
+        const formatter = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit' });
+
+        if(bookingId) {
+            let booking = await ci.getBookingDetail(bookingId);
+            if(booking) {
+                let req: MailRequest = new MailRequest();
+                req.email = booking.customerEmail;
+                req.subject = `${subject} | Booking ID #: ${booking.id}`
+                return this.mailService.sendMailUsingTemplate(req, template, { 
+                    id: booking.id,
+                    customerName: booking.customerName,
+                    rentalCityDrop: booking.rentalCityDrop,
+                    make: booking.car.make,
+                    model: booking.car.model,
+                    year: booking.car.year,
+                    city: booking.car.city,
+                    rentalStartDate: formatter.format(booking.rentalStartDate),
+                    rentalEndDate: formatter.format(booking.rentalEndDate),
+                    imageUrl: booking.car.imageUrl,
+                    rentalPrice: booking.car.rentalPrice,
+                });
+            }
+        }
+    } 
 }
