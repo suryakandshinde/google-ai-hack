@@ -4,11 +4,11 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { TypeOrmCrudService } from "@dataui/crud-typeorm";
 import { Car } from "../entities/car";
 
-
 import { BookingStatus, CarBooking } from "../entities/car-booking";
 import { Repository } from "typeorm";
-import { log } from "console";
 import { GeneralStatus } from "src/models";
+import { DATE_FORMAT } from "src/prompts";
+const moment = require('moment');
 
 @Injectable()
 export class CrudCarBookingService extends TypeOrmCrudService<CarBooking> {
@@ -19,18 +19,24 @@ export class CrudCarBookingService extends TypeOrmCrudService<CarBooking> {
     this.carRepo = carRepo;
   }
   
-  async bookCar(carId: number, rentalStartDate: Date, rentalEndDate: Date, rentalCityDrop: string, customerName: string, customerEmail: string) {
+  async bookCar(carId: number, rentalStartDate: any, rentalEndDate: any, rentalCityDrop: string, customerName: string, customerEmail: string) {
     const ci = this;
     
     try {
       let car: Car = await ci.carRepo.findOne({where : {id: carId}});
 
       if(car) {
+        rentalStartDate = moment(rentalStartDate, DATE_FORMAT);
+        rentalStartDate.year(moment().year());
+    
+        rentalEndDate = moment(rentalEndDate, DATE_FORMAT);
+        rentalEndDate.year(moment().year());  
+
         // Save booking
         let booking:CarBooking = new CarBooking();
         booking.car = car;
-        booking.rentalStartDate = rentalStartDate;
-        booking.rentalEndDate = rentalEndDate;
+        booking.rentalStartDate = rentalStartDate.toDate();
+        booking.rentalEndDate = rentalEndDate.toDate();
         booking.rentalCityDrop = rentalCityDrop;
         booking.customerName = customerName;
         booking.customerEmail = customerEmail;
@@ -50,13 +56,20 @@ export class CrudCarBookingService extends TypeOrmCrudService<CarBooking> {
     
   }
   
-  async updateCarBooingStartDate(bookingId: number, rentalStartDate: Date) {
+  async updateCarBookingDate(bookingId: number, rentalStartDate, rentalEndDate) {
     const ci = this;
     
     let booking = await ci.findOne({where: {id: bookingId}});
-    
+
     if(booking) {
-      booking.rentalStartDate = rentalStartDate;
+      rentalStartDate = moment(rentalStartDate, DATE_FORMAT);
+      rentalStartDate.year(moment().year());
+  
+      rentalEndDate = moment(rentalEndDate, DATE_FORMAT);
+      rentalEndDate.year(moment().year());  
+
+      booking.rentalStartDate = rentalStartDate.toDate();
+      booking.rentalEndDate = rentalEndDate.toDate();
       return await ci.repo.save(booking);
     }
     
