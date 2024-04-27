@@ -7,8 +7,7 @@ import { Content, FunctionCallingMode, GenerateContentRequest, HarmBlockThreshol
 import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/generative-ai";
 import { CarService } from './database/services/car.service';
 import { carBookingAgentPrompt, offerPrompt, sentimentPrompt } from './prompts';
-import { FindOptionsWhere, ILike } from 'typeorm';
-import { Car } from './database/entities/car';
+
 
 @Injectable()
 export class GoogleAIService {
@@ -332,8 +331,8 @@ export class GoogleAIService {
       bookACar: async ({id, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail}) => {      
         return await ci.carService.bookCar(id, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail);
       },
-      updateCarBooingStartDate: async ({bookingId, rentalStartDate}) => {      
-        return await ci.carService.updateCarBooingStartDate(bookingId, rentalStartDate);
+      updateCarBookingDate: async ({bookingId, rentalStartDate, rentalEndDate}) => {            
+        return await ci.carService.updateCarBookingDate(bookingId, rentalStartDate, rentalEndDate);
       },
       cancelBooking: async ({bookingId}) => {      
         return await ci.carService.cancelBooking(bookingId);
@@ -342,35 +341,28 @@ export class GoogleAIService {
         return await ci.carService.getBookingDetail(bookingId);
       }, 
       sendBookingConfirmationMail: async ({bookingId}) => {      
-        return await ci.carService.sendBookingConfirmationMail(bookingId);
+        return await ci.carService.sendMail(bookingId, 'Your booking is confirmed', './confirmation.hbs');
       },      
       countCars: async ({model, availability, city}) => {     
         return await ci.carService.count(model, availability, city);
       },
-      addNumbers: ({ value, value2 }) => { // This is just a sample. Remove after implementation
-        const num1 = typeof value === "string" ? parseFloat(value) : value;
-        const num2 = typeof value2 === "string" ? parseFloat(value2) : value2;
-        if (!Number.isFinite(num1) || !Number.isFinite(num2)) {
-          throw new Error("Value should finite number");
+      sentimentOrFeedbackAnalysis: async ({userFeedback}) => {
+        const sentimentResponse = await ci.getSentimentAndOffer(userFeedback);
+        if(sentimentResponse) {
+          return await ci.getOffer(sentimentResponse.offer);
         }
-        return num1 + num2;
       },
+      getCurrentYear: () => {
+        return new Date();
+      }
     };
     
     const tools: Array<Tool> = [
       {
         functionDeclarations: [
           {
-            name: "addNumbers",
-            description: "Add 2 numbers",
-            parameters: {
-              type: FunctionDeclarationSchemaType.OBJECT,
-              properties: {
-                value: { type: FunctionDeclarationSchemaType.NUMBER },
-                value2: { type: FunctionDeclarationSchemaType.NUMBER },
-              },
-              required: ["value", "value2"],
-            },
+            name: "getCurrentYear",
+            description: "Return current date",
           },  
           {
             name: "listOfCars",
@@ -428,8 +420,8 @@ export class GoogleAIService {
             },
           },
           {
-            name: "updateCarBooingStartDate",
-            description: "Update the start date a rental car booking/reservation. User will provide booking id / reservatin id and new start date.",
+            name: "updateCarBookingDate",
+            description: "Update the start and end date of a rental car booking/reservation. User will provide booking id, new start and end date.",
             parameters: {
               type: FunctionDeclarationSchemaType.OBJECT,
               properties: {
@@ -438,8 +430,12 @@ export class GoogleAIService {
                   type: FunctionDeclarationSchemaType.STRING, 
                   description: 'Booking start date in the format of YYY-MM-DD. e.g., 2022-04-25',
                 },
+                rentalEndDate: { 
+                  type: FunctionDeclarationSchemaType.STRING, 
+                  description: 'Booking end date in the format of YYY-MM-DD. e.g., 2022-04-25',
+                },                
               },
-              required: ["model"],
+              required: ["rentalStartDate", "rentalEndDate"],
             },
           },
           {
@@ -483,7 +479,21 @@ export class GoogleAIService {
               },
               required: ["bookingId"],
             },
-          },                                       
+          }, 
+          {
+            name: "sentimentOrFeedbackAnalysis",
+            description: "Analyze the feedback provided by a customer about rental service and suggest a promotional offer.",
+            parameters: {
+              type: FunctionDeclarationSchemaType.OBJECT,
+              properties: {
+                userFeedback: { 
+                  type: FunctionDeclarationSchemaType.STRING, 
+                  description: 'Feedback provide by the user. e.g., the servie was great',
+                },
+              },
+              required: ["userFeedback"],
+            },
+          },                                                
         ]       
       },
     ];  
