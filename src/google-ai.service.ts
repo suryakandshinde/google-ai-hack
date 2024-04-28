@@ -251,6 +251,7 @@ export class GoogleAIService {
       const request2: GenerateContentRequest = {
         contents: [prompt, content, functionRequest],
       };
+
       const response2 = await model.generateContent(request2);
       const result2 = response2.response;
       
@@ -328,7 +329,7 @@ export class GoogleAIService {
       carDetail: async ({model, availability, city}) => {      
         return await ci.carService.carDetail(model, availability, city);
       }, 
-      bookACar: async ({id, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail}) => {      
+      bookACar: async ({id, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail}) => {    
         return await ci.carService.bookCar(id, rentalStartDate, rentalEndDate, rentalCityDrop, customerName, customerEmail);
       },
       updateCarBookingDate: async ({bookingId, rentalStartDate, rentalEndDate}) => {            
@@ -405,16 +406,16 @@ export class GoogleAIService {
           },
           {
             name: "bookACar",
-            description: "Book a car or reservation.",
+            description: "Book a car or reservation. User need to provide full name, email, start and end date, pick up and drop off city",
             parameters: {
               type: FunctionDeclarationSchemaType.OBJECT,
               properties: {
-                id: { type: FunctionDeclarationSchemaType.NUMBER, description: 'ID of the car e.g. 1' },
-                rentalStartDate: { type: FunctionDeclarationSchemaType.STRING },
-                rentalEndDate: { type: FunctionDeclarationSchemaType.STRING },
-                rentalCityDrop: { type: FunctionDeclarationSchemaType.STRING },
-                customerName: { type: FunctionDeclarationSchemaType.STRING, description: 'Name of customer e.g. John Doe' },
-                customerEmail: { type: FunctionDeclarationSchemaType.STRING, description: 'Email of customer e.g. johndoe@carrental.com' },
+                id: { type: FunctionDeclarationSchemaType.NUMBER, description: 'ID of the car e.g. 1', nullable: false },
+                rentalStartDate: { type: FunctionDeclarationSchemaType.STRING, description: 'Start date for renting car', nullable: false },
+                rentalEndDate: { type: FunctionDeclarationSchemaType.STRING,  description: 'End date for renting car', nullable: false },
+                rentalCityDrop: { type: FunctionDeclarationSchemaType.STRING,  description: 'Drop off city', nullable: false },
+                customerName: { type: FunctionDeclarationSchemaType.STRING, description: 'Name of customer', nullable: false },
+                customerEmail: { type: FunctionDeclarationSchemaType.STRING, description: 'Email of customer', nullable: false },
               },
               required: ["id", "rentalStartDate", "rentalEndDate", "rentalCityDrop", "customerName", "customerEmail"],
             },
@@ -447,7 +448,7 @@ export class GoogleAIService {
                 bookingId: { 
                   type: FunctionDeclarationSchemaType.NUMBER, 
                   description: 'Booking/Reservation ID of the car booking. e.g., 1',
-                },
+                },               
               },
               required: ["bookingId"],
             },
@@ -489,6 +490,7 @@ export class GoogleAIService {
                 userFeedback: { 
                   type: FunctionDeclarationSchemaType.STRING, 
                   description: 'Feedback provide by the user. e.g., the servie was great',
+                  nullable: false,
                 },
               },
               required: ["userFeedback"],
