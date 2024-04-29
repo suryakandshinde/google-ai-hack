@@ -15,9 +15,6 @@ More detail about the approval process: https://support.google.com/cloud/answer/
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
-# Video Demo/Pitch:
-- Low/No-Code Demo Presentation: https://youtu.be/IQtdmEWIGwQ
-- Demo Pitch/Presentation: https://youtu.be/4TmRceCyK30
 
 # Inspiration (Business Scenario)
 The integration of Generative AI (GenAI) capabilities and tools in any industry holds immense potential to revolutionize the customer experience and streamline operations. **Rental Car Industry** is one of those industries.
