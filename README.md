@@ -49,7 +49,7 @@ The implementation will help both sides (rental car customer as well as rental c
 - Avail rental car related service 24x7 with same quality and accuracy
 
 ## How we built it?
-Following tools and technologies are used to building this solution/demo:
+Following tools and technologies are used to building this solution/demo ([Project Setup and Build Instructins](#setup)):
 
 **Google Project ID**: woven-mesh-421014 (name: Google AI Hack 2024)
 
