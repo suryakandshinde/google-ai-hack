@@ -218,16 +218,36 @@ Below are  **Visualization** of Vertex AI Assistant **AGENT** and **TOOL**
 
 
 # Setup
-You need an `GOOGLE_API_KEY` Key to run this application. Please see `.env` file for list of environment variables that you need to configure.
+
+## Environemnt setup
+- Please see `.sample.env` file for list of environment variables that you need to configure
+- Rename the `.sample.env` file to `.env`
+- You need an `GOOGLE_API_KEY` Key to run this application. 
+- Update MAIL related configs (you can use your any Gmail Account). You may have to follow the steps to enable sending email using your Gmail account, follow this article: [Sign in with app passwords](https://support.google.com/mail/answer/185833?hl=en)
+- `LOAD_SAMPLE_DATA` flag controlls whether to load sample data or not? Set this to `true` for first run ONLY.
 
 ```bash
 #environment variables
+
+#General configurations
 SERVER_URL=http://localhost:3000
 PUBLIC_FOLDER=public
-PROJECT_ID=[YOUR PROJECT ID]
-MODEL_ID=[MODEL_TO_USE] (e.g., gemini-1.0-pro-001)
-GOOGLE_API_KEY=[YOUR GOOGLE API KEY]
-PROJECT_ID=[YOUR GOOGLE PROJECT ID]
+
+# Google PROJECT configurations
+PROJECT_ID=woven-mesh-421014
+MODEL_ID=gemini-1.0-pro-001
+GOOGLE_API_KEY=<ENTER YOUR GOOGLE API KEY>
+
+# Email configuration (sending transactional emails)
+MAIL_HOST=smtp.gmail.com
+MAIL_USER=<ENTER YOUR GMAIL USERNAME>
+MAIL_PASS=<ENTER YOUR GMAIL APP PASSWORD>
+MAIL_FROM="CxAI" <YOUR GMAIL USERNAME>
+
+# This flag control whether to load sample CSV data from ./sqllite/sample/cars.csv file or not
+# For first run keep this flag true, after that trun this to false. 
+LOAD_SAMPLE_DATA=false
+
 ```
 
 ## Install dependencies
@@ -252,7 +272,8 @@ $ npm run start:prod
 
 ## Localhost access
 - To access web application locally visit: http://localhost:3000/site
-- Access chat: locate the chat icon on bottom right corner
+- To access APIs locally visit: http://localhost:3000/api
+- Access chat: locate the chat icon on bottom right corner. There are 2 chat icons (one using Vertex AI Agent and another one classic HTML/CSS). If you are not one of test users, Vertex AI Agent chat will not work for you, please use other chat icon.
 
 # References
 - Mock data for rental car: https://www.mockaroo.com
