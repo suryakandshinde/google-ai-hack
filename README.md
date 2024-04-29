@@ -1,12 +1,13 @@
 
-#Note about video presentation
-The solution was initially implemented used **Google Vertex AI Agent** but, I realized that I can not get the Chat App approved from Google just for the demo. The Google approval process need formal privacy policy etc. to successfully complete the approval check. Hence, I have changed the implemented to a JS based chat widget instead that Hackathon evaluators can access. I have also recorded a demo using Google Vertex AI Agent App (using my test account). I have shared both videos below.
+# Note about video presentation
+The solution was initially implemented used **Google Vertex AI Agent** but, I realized that I can not get the Chat App approved from Google before the hackathon deadline. The Google approval process need formal privacy policy etc. to successfully complete the approval. Hence, I have changed the implementation to a HTML and JS based chat widget so that Hackathon evaluators can access the live demo of Chat Agent. I have also recorded a demo using Google Vertex AI Agent App (using my test account). I have shared both videos below.
 
 More detail about the approval process: https://support.google.com/cloud/answer/13464323/#exemptions
 
-## Video Demo/Pitch:
-- Demo Pitch/Presentation: https://youtu.be/ynxZ6-xGJwU
+## Video Demo/Pitch and Live Demo:
+- Demo Pitch/Presentation: https://youtu.be/f5ltQuBO7Wg
 - Low/No-Code Demo Presentation (using Vertex AI Agent App): https://youtu.be/IQtdmEWIGwQ
+- Live Demo (https://genai-demo.onrender.com/site) - You may have to wait for 30 seconds for the demo site to come up on your first request.
 
 <img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/chat_agents.png" /> 
 
