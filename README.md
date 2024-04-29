@@ -1,4 +1,16 @@
 
+#Note about video presentation
+The solution was initially implemented used **Google Vertex AI Agent** but, I realized that I can not get the Chat App approved from Google just for the demo. The Google approval process need formal privacy policy etc. to successfully complete the approval check. Hence, I have changed the implemented to a JS based chat widget instead that Hackathon evaluators can access. I have also recorded a demo using Google Vertex AI Agent App (using my test account). I have shared both videos below.
+
+More detail about the approval process: https://support.google.com/cloud/answer/13464323/#exemptions
+
+## Video Demo/Pitch:
+- Demo Pitch/Presentation: https://youtu.be/ynxZ6-xGJwU
+- Low/No-Code Demo Presentation (using Vertex AI Agent App): https://youtu.be/IQtdmEWIGwQ
+
+<img src="https://github.com/suryakandshinde/google-ai-hack/raw/main/docs/chat_agents.png" /> 
+
+
 <code style="color : darkorange">**Please Note**:  The demo is hosted using a free trial account on (render.com). Free instance will spin down without any activity. Please wait for 50 seconds after your first request for site to come up. Also, since this application is using sqllite, the database is refreshed with every restart of instance.
 </code>
 
@@ -44,10 +56,14 @@ Following tools and technologies are used to building this solution/demo:
 
 - **Google AI Studio / Gemini** ( **gemini-1.0-pro-001** - [https://aistudio.google.com/app/prompts]) 
     - Used for finetuning AI Agent response using prompt engineering/system instructions and example scenarios (few-shot prompting)
-    - Used for sentiment analysis of customer feedback/comments (using Google Node.js SDK)
-    - Used for suggesting a promotional offer to customers based on sentiment analysis of feedback (if feedback was negative)
+    - Used for sentiment analysis of user feedback/comments (using Google Node.js SDK)
+    - Used for suggesting an promotional offer to a customer based on sentiment analysis of feedback (if feedback was negative)
     - [Read more about implementation](#google-ai-studio)
-- **Google Vertex AI Agent/Conversation and Dialogflow (Low-Code Chat Assistant)** [https://cloud.google.com/dialogflow/vertex/docs/quick/create-application] 
+- **Google Function Calling to invoke business APIs/Services** 
+- **AI Chat Assistant** 
+    There are 2 versions of AI Chat Agent. First one using Low/No-Code Google Vertex AI Agent and, second Custom Chat widget using HTML and JS. The. The **Vertex AI Agent will not work for all users while app is in Testing environment**.
+    - Google Vertex AI Agent and Dialogflow (Low-Code Chat Assistant - https://cloud.google.com/dialogflow/vertex/docs/quick/create-application)
+    - Custom HTML/JS based chat widget (built this for demo as Vertex AI Agent will not work for all users while app is in Testing environment).
     - Used as a low-code solution to provide human like chat experience to users and assist them with various rental services
     - [Read more about implementation](#google-vertex-ai-assistant)    
 - **Google -  Node.js SDK** (`@google/generative-ai` and `@langchain/google-genai`) 
