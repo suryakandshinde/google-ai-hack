@@ -16,8 +16,8 @@
       flex-direction: column;
     }
     #chat-popup {
-      height: 70vh;
-      max-height: 70vh;
+      height: 80vh;
+      max-height: 80vh;
       transition: all 0.3s;
       overflow: hidden;
     }
@@ -244,7 +244,7 @@
       const messageElement = document.createElement('div');
       messageElement.className = 'flex justify-end mb-3';
       messageElement.innerHTML = `
-        <div class="bg-blue-800 text-white rounded-lg py-2 overflow-y-auto px-4 max-w-[70%]">
+        <div class="bg-green-500 text-white rounded-lg py-2 overflow-y-auto px-4 max-w-[70%]">
           ${message}
         </div>
       `;
