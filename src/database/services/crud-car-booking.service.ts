@@ -8,6 +8,7 @@ import { BookingStatus, CarBooking } from "../entities/car-booking";
 import { Repository } from "typeorm";
 import { GeneralStatus } from "src/models";
 import { DATE_FORMAT } from "src/prompts";
+import { BookingFilter } from "../models";
 const moment = require('moment');
 
 @Injectable()
@@ -97,10 +98,24 @@ export class CrudCarBookingService extends TypeOrmCrudService<CarBooking> {
     };
   } 
 
-  async getBookingDetail(bookingId: number): Promise<CarBooking> {
+  async getBookingDetail(bookingFilter: BookingFilter): Promise<CarBooking> {
     const ci = this;
-    
-    let booking = await ci.findOne({where: {id: bookingId}});
+
+    let whereConditon = [];
+
+    if(bookingFilter.bookingId) {
+      whereConditon.push({id: bookingFilter.bookingId});
+    }
+
+    if(bookingFilter.customerEmail) {
+      whereConditon.push({customerEmail: bookingFilter.customerEmail});
+    }
+
+    if(bookingFilter.customerName) {
+      whereConditon.push({customerName: bookingFilter.customerName});
+    }
+
+    let booking = await ci.findOne({where: whereConditon});
     
     if(booking) {
       return booking

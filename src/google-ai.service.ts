@@ -7,6 +7,7 @@ import { Content, FunctionCallingMode, GenerateContentRequest, HarmBlockThreshol
 import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/generative-ai";
 import { CarService } from './database/services/car.service';
 import { carBookingAgentPrompt, offerPrompt, sentimentPrompt } from './prompts';
+import { BookingFilter } from './database/models';
 
 
 @Injectable()
@@ -338,8 +339,8 @@ export class GoogleAIService {
       cancelBooking: async ({bookingId}) => {      
         return await ci.carService.cancelBooking(bookingId);
       },      
-      getBookingDetail: async ({bookingId}) => {      
-        return await ci.carService.getBookingDetail(bookingId);
+      getBookingDetail: async (bookingFilter: BookingFilter) => {      
+        return await ci.carService.getBookingDetail(bookingFilter);
       }, 
       sendBookingConfirmationMail: async ({bookingId}) => {      
         return await ci.carService.sendMail(bookingId, 'Your booking is confirmed', './confirmation.hbs');
@@ -455,14 +456,13 @@ export class GoogleAIService {
           },             
           {
             name: "getBookingDetail",
-            description: "Booking details of rental car reservation. User will provide booking id / reservatin id.",
+            description: "Find rental car booking details using either booking id or email or full name",
             parameters: {
               type: FunctionDeclarationSchemaType.OBJECT,
               properties: {
-                bookingId: { 
-                  type: FunctionDeclarationSchemaType.NUMBER, 
-                  description: 'Booking ID of the car booking. e.g., 1',
-                },
+                bookingId: { type: FunctionDeclarationSchemaType.NUMBER, description: 'Booking ID of the car booking. e.g., 1'},
+                customerName: { type: FunctionDeclarationSchemaType.STRING, description: 'Name of customer' },
+                customerEmail: { type: FunctionDeclarationSchemaType.STRING, description: 'Email of customer' },
               },
               required: ["bookingId"],
             },
@@ -476,6 +476,7 @@ export class GoogleAIService {
                 bookingId: { 
                   type: FunctionDeclarationSchemaType.NUMBER, 
                   description: 'Booking ID of the car booking. e.g., 1',
+                  nullable: false
                 },
               },
               required: ["bookingId"],

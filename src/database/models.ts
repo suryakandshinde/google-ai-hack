@@ -16,6 +16,20 @@ export class CarFilter {
     city: string;
 }
 
+export class BookingFilter {
+    @IsNumber()
+    @ApiProperty({ example: 1, description: 'Booking id', required: true })
+    bookingId: number;
+
+    @IsString()
+    @ApiProperty({ example: 'John Doe', description: 'Name of the customer booking the car', required: true })
+    customerName: string;
+    
+    @IsString()
+    @ApiProperty({ example: 'johndoe@doesnotexist.com', description: 'Email of the customer booking the car', required: true })
+    customerEmail: string;
+}
+
 export class CarList {
     @IsArray()
     @ApiProperty({ example: [], description: 'List of cars', required: true })

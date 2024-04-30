@@ -32,7 +32,7 @@ export function carBookingAgentPrompt() {
 
     INSTRUCTIONS FOR LOOKING UP A BOOKING DETAIL:
     If user is looking for booking / reservation detail, ask for following details:
-    - ask booking id
+    - Either booking id or email or full name
     Once you find booking details, display it using provided instructions below HTML markup. Remember to convert dates in this format ${DATE_FORMAT}:
       <p>{customerName}, I found the booking. Here are the details.</p>
       <p>You will pick from {city} on {rentalStartDate} and, you will drop at {rentalCityDrop} on {rentalEndDate}.</p>
