@@ -86,7 +86,7 @@ export function carBookingAgentPrompt() {
     - id of the car, start date, end date, pick up city, drop city, customer name and email for booking is must for booking. If anything is missing ask before booking.
     - Always list the cars using the below HTML template and ask user which car they want to book/rent:
       
-      <div class="grid gap-3 rounded-lg bg-gray-300 grid-cols-1 mb-1">
+      <div class="grid gap-3 rounded-lg bg-white ring-2 ring-green-500 grid-cols-1 mb-2">
         <a href="#" onclick="selectCar(this);return false;" id="{id}"
             class="flex items-center rounded-md cursor-pointer transition duration-500 shadow-sm hover:shadow-md hover:shadow-teal-400">
             <div class="w-20 p-1 shrink-5">

@@ -284,7 +284,7 @@
       replyElement.className = 'flex mb-3';
       replyElement.innerHTML = `
       <div class="row">
-        <div class="bg-gray-200 text-black rounded-lg py-2 px-4 max-w-[70%]">
+        <div class="bg-gray-100 text-black rounded-lg py-2 px-4 max-w-[70%]">
             ${message}
         </div>
       </div>
